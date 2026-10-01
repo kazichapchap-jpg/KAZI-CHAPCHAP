@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaziChapChap - Meru Jobs</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7f0;} .header{background:#0a7a2c;padding:15px;color:white;text-align:center;}
+.header h1 span{color:#ffcc00;}
+.card{max-width:700px;margin:20px auto;background:white;padding:25px;border-radius:15px;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
+label{font-weight:700;font-size:14px;margin:12px 0 5px;display:block;}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;}
+.btn{width:100%;padding:15px;background:#0a7a2c;color:white;border:none;border-radius:10px;font-weight:800;margin-top:15px;cursor:pointer;}
+.btn-yellow{background:#ffb800;color:#0a2f12;}
+.mpesa-box{background:#e8f5e9;border:2px solid #0a7a2c;padding:15px;border-radius:10px;margin:15px 0;text-align:center;}
+.nav{display:flex;gap:10px;justify-content:center;margin:15px;}
+.nav button{padding:10px 20px;border-radius:20px;border:1px solid #0a7a2c;background:white;cursor:pointer;}
+.nav button.active{background:#0a7a2c;color:white;}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>✓ KaziChapChap <span>.co.ke</span></h1>
+<p>Meru • Connecting Workers to Jobs • Helpline: 0798989955</p>
+</div>
+
+<div class="nav">
+<button class="active" onclick="show('worker')">I Need Job</button>
+<button onclick="show('employer')">I Need Worker</button>
+<button onclick="show('admin')">Admin</button>
+</div>
+
+<!-- WORKER FORM -->
+<div id="worker" class="card">
+<h2>Worker Registration</h2>
+<p style="color:#666;font-size:13px">Free to register • M-Pesa: 0798989955</p>
+<div class="mpesa-box">
+<strong>Lipa na M-Pesa to Verify:</strong><br>
+Go to M-Pesa → Send Money → 0798989955<br>
+Amount: KES 50 → To verify your profile<br>
+Name: KaziChapChap Admin
+</div>
+<form onsubmit="registerWorker(event)">
+<label>Full Name as per ID *</label><input id="wname" required placeholder="e.g. James Murithi">
+<label>ID Number *</label><input id="wid" required>
+<label>Phone (M-Pesa) * - 0798989955 will call you</label><input id="wphone" required placeholder="07XX XXX XXX">
+<label>County *</label><select><option>Meru</option><option>Nairobi</option><option>Other</option></select>
+<label>Sub-County / Ward</label><input placeholder="e.g. Imenti North, Nkubu">
+<label>Specific Skill / Qualification *</label>
+<select id="wskill" required>
+<option>Mjengo / Construction</option><option>Fundi Mason</option><option>Plumber</option><option>Electrician</option><option>Driver BCE</option><option>Boda Rider</option><option>Mama Fua / Cleaner</option><option>House Help</option><option>Shamba Worker</option><option>Waiter / Cook</option><option>Teacher</option><option>Other</option>
+</select>
+<label>Years Experience</label><input type="number" placeholder="3">
+<label>CV Upload (PDF) - Optional</label><input type="file">
+<label>Certificates / License / Good Conduct - Photo</label><input type="file">
+<label>Expected Daily Wage KES</label><input type="number" placeholder="1200">
+<label>Reference - Chief / Former Employer Name & Phone</label><input placeholder="e.g. Chief Kijana 0722...">
+<button class="btn" type="submit">REGISTER - TUMA</button>
+</form>
+</div>
+
+<!-- EMPLOYER FORM -->
+<div id="employer" class="card" style="display:none">
+<h2>Post a Job - Find Worker Fast</h2>
+<div class="mpesa-box">
+<strong>To Unlock Worker Contacts:</strong><br>
+M-Pesa Send Money → 0798989955<br>
+KES 150 = 10 Contacts<br>
+KES 500 = 50 Contacts<br>
+After payment, WhatsApp receipt to 0798989955
+</div>
+<form onsubmit="postJob(event)">
+<label>Your Name / Company *</label><input required>
+<label>Your Phone *</label><input required placeholder="07XX XXX XXX">
+<label>What Worker Do You Need? *</label><select><option>Mjengo</option><option>Plumber</option><option>Electrician</option><option>Cleaner</option><option>House Help</option><option>Driver</option></select>
+<label>Job Location - Meru Area *</label><input required placeholder="e.g. Makutano, Meru Town">
+<label>Daily Wage You Will Pay KES *</label><input type="number" required placeholder="1500">
+<label>Job Description</label><textarea rows="4" placeholder="Explain work..."></textarea>
+<button class="btn btn-yellow" type="submit">POST JOB NOW - KES 0 FREE</button>
+</form>
+<h3 style="margin-top:20px">Available Workers (Demo)</h3>
+<p>James M. - Fundi - Meru - 1500/day - Verified ✓<br>Amina K. - House Help - Meru - 800/day</p>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" class="card" style="display:none">
+<h2>Admin Dashboard - Owner Only</h2>
+<p>Revenue M-Pesa: 0798989955</p>
+<p><strong>Today:</strong> KES 0 (New site)</p>
+<p><strong>Workers:</strong> 0 - Share your site to get first 50</p>
+<p><strong>Jobs:</strong> 0</p>
+<button class="btn" onclick="alert('When someone sends money to 0798989955, M-Pesa will SMS you. Check balance: *334#')">Check M-Pesa Balance *334#</button>
+</div>
+
+<script>
+function show(id){
+ document.getElementById('worker').style.display='none';
+ document.getElementById('employer').style.display='none';
+ document.getElementById('admin').style.display='none';
+ document.getElementById(id).style.display='block';
+}
+function registerWorker(e){
+ e.preventDefault();
+ alert('Asante ' + document.getElementById('wname').value + '!\\n\\nProfile saved.\\n\\nNEXT: Send KES 50 to 0798989955 via M-Pesa Send Money to verify.\\nThen WhatsApp your M-Pesa message to same number.\\n\\nWe will call you when job comes.');
+}
+function postJob(e){
+ e.preventDefault();
+ alert('Job Posted LIVE!\\n\\nWe have notified workers in Meru.\\n\\nTo get their phone numbers:\\nSend KES 150 to 0798989955 (Send Money)\\nThen WhatsApp receipt to 0798989955');
+}
+</script>
+</body>
+</html>

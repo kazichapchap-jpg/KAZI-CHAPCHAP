@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - KaziChapChap</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f0f2f0;display:flex;}
+.sidebar{width:240px;background:#0a2f12;color:white;min-height:100vh;padding:20px;position:fixed;}
+.sidebar h2{color:#ffcc00;margin-bottom:20px;}
+.sidebar a{display:block;color:#c8e6c9;padding:10px;text-decoration:none;border-radius:8px;margin-bottom:5px;}
+.sidebar a.active{background:#1b5e20;color:white;}
+.main{margin-left:240px;width:calc(100% - 240px);padding:20px;}
+@media(max-width:800px){.sidebar{width:100%;position:relative;min-height:auto;}.main{margin-left:0;width:100%;}}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px;}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr;}}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.num{font-size:26px;font-weight:800;color:#0a7a2c;}
+table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;}
+th,td{padding:12px;text-align:left;font-size:13px;border-bottom:1px solid #eee;}
+th{background:#0a7a2c;color:white;}
+.btn{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-weight:700;font-size:12px;}
+.approve{background:#c8e6c9;color:#0a7a2c;}
+.mpesa-box{background:#1b5e20;padding:15px;border-radius:10px;margin-top:20px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="sidebar">
+<h2>✓ KaziChapChap<br><small>ADMIN - OWNER</small></h2>
+<a class="active">📊 Dashboard</a>
+<a>👷 Workers List</a>
+<a>💼 Jobs</a>
+<a>💰 M-Pesa Payments</a>
+<a href="index.html">🌐 View Site</a>
+<a href="employer.html">👔 Employer Page</a>
+
+<div class="mpesa-box">
+<small>YOUR M-PESA</small><br>
+<b style="font-size:20px;color:#ffcc00">0798989955</b><br>
+<small>Check Balance: *334#</small><br><br>
+<small>Today Revenue</small><br>
+<b style="font-size:18px;color:#ffcc00">KES 0</b><br>
+<small>New site - share to earn</small>
+</div>
+</div>
+
+<div class="main">
+<h1>Dashboard - Meru Region</h1>
+<p>Owner: 0798989955 | All payments come to you</p>
+
+<div class="cards">
+<div class="card"><h3>Total Workers</h3><div class="num">0</div><small>Share link to get first 50</small></div>
+<div class="card"><h3>Pending Verify</h3><div class="num">0</div><small>Check M-Pesa 50 bob payments</small></div>
+<div class="card"><h3>Active Jobs</h3><div class="num">0</div><small>Employers posting</small></div>
+<div class="card"><h3>Total Revenue</h3><div class="num">KES 0</div><small>To 0798989955</small></div>
+</div>
+
+<div class="card">
+<h3>How to Run Your Business Daily</h3>
+<p><b>Morning:</b> Post your link in 3 Facebook groups Meru + 5 WhatsApp groups</p>
+<p><b>When worker registers:</b> They WhatsApp you screenshot → You save in Excel → Ask them to send 50 bob to 0798989955 to verify</p>
+<p><b>When employer posts:</b> They WhatsApp you → You ask for 150 bob to 0798989955 → You send them 10 worker numbers</p>
+<p><b>Profit:</b> KES 150 per employer - No cost!</p>
+<button style="margin-top:15px;padding:10px 20px;background:#0a7a2c;color:white;border:none;border-radius:8px" onclick="alert('Your M-Pesa 0798989955 will receive SMS when someone pays. Dial *334# to check balance. Keep Excel sheet of who paid.')">Check M-Pesa *334#</button>
+</div>
+
+<table style="margin-top:20px">
+<tr><th>Name / Phone</th><th>Skill</th><th>Location</th><th>M-Pesa 50?</th><th>Action</th></tr>
+<tr><td>Example: James 0723XXXX</td><td>Mjengo</td><td>Meru</td><td>PAID 50</td><td><button class="btn approve">Approve</button></td></tr>
+</table>
+</div>
+</body>
+</html>

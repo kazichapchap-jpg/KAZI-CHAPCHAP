@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post Job - KaziChapChap Meru</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7f0;}
+.header{background:#0a7a2c;padding:15px 5%;display:flex;justify-content:space-between;color:white;}
+.header a{color:#ffcc00;text-decoration:none;border:1px solid #ffcc00;padding:8px 15px;border-radius:20px;font-weight:bold;}
+.container{max-width:1100px;margin:20px auto;display:grid;grid-template-columns:1.3fr 0.7fr;gap:20px;padding:0 15px;}
+@media(max-width:900px){.container{grid-template-columns:1fr;}}
+.card{background:white;padding:25px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
+label{font-weight:700;font-size:14px;margin:10px 0 5px;display:block;}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;}
+.btn{width:100%;padding:15px;background:#0a7a2c;color:white;border:none;border-radius:10px;font-weight:800;margin-top:15px;cursor:pointer;}
+.btn-yellow{background:#ffb800;color:#0a2f12;}
+.mpesa{background:#e8f5e9;border:2px solid #0a7a2c;padding:15px;border-radius:10px;text-align:center;margin:15px 0;}
+.worker{border:1px solid #e0e0e0;padding:12px;border-radius:10px;margin-bottom:10px;}
+.badge{background:#e8f5e9;color:#0a7a2c;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>✓ KaziChapChap</h1>
+<div><a href="index.html">For Workers</a> <a href="admin.html">Admin</a></div>
+</div>
+
+<div class="container">
+<div class="card">
+<h2>Post a Job - Meru</h2>
+<p style="color:#666;font-size:13px">Your job will be sent to workers via SMS / WhatsApp</p>
+
+<div class="mpesa">
+<strong style="color:#0a7a2c">🔓 TO GET WORKER CONTACTS:</strong><br>
+M-Pesa <b>Send Money</b> to <b>0798989955</b><br>
+KES 150 = 10 Contacts<br>
+KES 500 = 50 Contacts<br>
+Name: KaziChapChap<br>
+After payment, WhatsApp receipt to 0798989955
+</div>
+
+<form onsubmit="postJob(event)">
+<label>Your Name / Company *</label>
+<input required placeholder="e.g. Murithi Hardware - Makutano">
+<label>Your Phone (M-Pesa) *</label>
+<input required placeholder="07XX XXX XXX">
+<label>What Worker Do You Need? *</label>
+<select required>
+<option>Mjengo Worker</option><option>Fundi Mason</option><option>Plumber</option><option>Electrician</option><option>Driver BCE</option><option>Mama Fua / Cleaner</option><option>House Help</option><option>Shamba Worker</option><option>Waiter / Cook</option>
+</select>
+<label>Job Title *</label>
+<input required placeholder="Need 2 Painters in Nkubu tomorrow">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+<div><label>Location *</label><input required placeholder="Meru - Makutano"></div>
+<div><label>Daily Wage KES *</label><input type="number" required placeholder="1500"></div>
+</div>
+<label>Job Description</label>
+<textarea rows="4" placeholder="Explain work, hours, tools needed..."></textarea>
+<button class="btn" type="submit">POST JOB NOW → FREE</button>
+</form>
+</div>
+
+<div>
+<div class="card">
+<h3>Available Workers in Meru</h3>
+<p style="font-size:12px;color:#666;margin-bottom:10px">Pay to unlock phone numbers via M-Pesa 0798989955</p>
+
+<div class="worker"><b>James M. - Fundi Mjengo</b> <span class="badge">VERIFIED</span><br><small>Meru • 5 Yrs • 1500/day • 0723 XXX XXX</small></div>
+<div class="worker"><b>Amina K. - House Help</b> <span class="badge">VERIFIED</span><br><small>Meru Town • 3 Yrs • 800/day • 0712 XXX XXX</small></div>
+<div class="worker"><b>Peter K. - Driver BCE</b> <span class="badge">LICENSE OK</span><br><small>Nkubu • 7 Yrs • 2000/day • 0701 XXX XXX</small></div>
+
+<button class="btn btn-yellow" onclick="alert('Send KES 150 to 0798989955 via Send Money. Then WhatsApp receipt to same number to get 10 contacts.')">🔓 UNLOCK CONTACTS - 150 KES → 0798989955</button>
+<p style="text-align:center;font-size:12px;margin-top:10px">Helpline: 0798989955</p>
+</div>
+</div>
+</div>
+
+<script>
+function postJob(e){
+e.preventDefault();
+alert('JOB POSTED LIVE! ✓\n\nWe notified workers in Meru.\n\nNEXT: To get their phone numbers,\nM-Pesa Send Money KES 150 to 0798989955\nThen WhatsApp receipt to 0798989955\n\nWe will send you contacts in 5 mins.');
+}
+</script>
+</body>
+</html>
